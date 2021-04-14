@@ -1,0 +1,16 @@
+{
+  "author": "Saturnino Abril",
+  "license": "Apache-2.0",
+  "name": "mm-hw-ui-automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@octokit/rest": "18.0.6",
+    "fs-extra": "9.0.1",
+    "node-fetch": "2.6.1"
+  }
+}
