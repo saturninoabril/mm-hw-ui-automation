@@ -1,9 +1,9 @@
 const {Octokit} = require('@octokit/rest');
 
 const GITHUB_LABELS = [
+    'Hacktoberfest',
     'Area/E2E Tests',
     'Difficulty/1:Easy',
-    'Hacktoberfest',
     'Help Wanted',
     'Up For Grabs',
     'Tech/Automation'

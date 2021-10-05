@@ -3,6 +3,8 @@ const fetch = require('node-fetch');
 
 const github = require('../utils/github');
 
+require('dotenv').config();
+
 async function testCaseHandler(id) {
     const options = {
         method: 'GET',
@@ -11,7 +13,7 @@ async function testCaseHandler(id) {
             authorization: process.env.TM4J_API_KEY,
         },
     };
-    const caseResponse = await fetch(`https://api.adaptavist.io/tm4j/v2/testcases/${id}`, options);
+    const caseResponse = await fetch(`https://api.zephyrscale.smartbear.com/v2/testcases/${id}`, options);
     const caseJson = await caseResponse.json();
     if (!caseJson) {
         console.log(`Test case for ${id} not found.`);
@@ -19,7 +21,7 @@ async function testCaseHandler(id) {
     }
     console.log('caseResponse', caseResponse)
     console.log('caseJson', caseJson)
-    const stepResponse = await fetch(`https://api.adaptavist.io/tm4j/v2/testcases/${id}/teststeps`, options);
+    const stepResponse = await fetch(`https://api.zephyrscale.smartbear.com/v2/testcases/${id}/teststeps`, options);
     const stepJson = await stepResponse.json();
     if (!stepJson || !stepJson.values) {
         console.log(`Test step for ${id} not found.`);
@@ -113,7 +115,11 @@ If you're interested, please comment here and come [join our "Contributors" comm
 New contributors please see our [Developer's Guide](https://developers.mattermost.com/contribute/getting-started/).
 `;
 };
-
+console.log('process.env.TEST_KEY', process.env.TEST_KEY)
+console.log('process.env.TEST_KEY', process.env.TEST_FOLDER)
+console.log('process.env.TEST_KEY', process.env.TM4J_API_KEY)
+console.log('process.env.TEST_KEY', process.env.TEST_KEY)
+console.log('process.env.TEST_KEY', process.env.TEST_KEY)
 if (process.env.TEST_KEY) {
     process.env.TEST_KEY.split(',').forEach(id => {
         const testCase = `MM-T${id}`;

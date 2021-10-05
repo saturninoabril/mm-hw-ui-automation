@@ -3,6 +3,8 @@ const fetch = require('node-fetch');
 
 const github = require('../utils/github');
 
+require('dotenv').config();
+
 async function testCaseHandler(id) {
     const options = {
         method: 'GET',
